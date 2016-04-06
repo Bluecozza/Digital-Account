@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>session handling in jquery</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquerysession.js"></script>
+    <script src="js/site.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/site.css" media="all" />
+  </head>
+  <body>
+    <div class="container"> 
+      <h3 align="center"><u>session handling in jquery</u></h3>
+      <div class="left">
+        <div>
+          <span class="button removeall">Click me to Remove all Session variable</span><br>
+          <span class="response-removeall"><strong>Response</strong> : <span></span></span>
+          <span class="content-desc"><strong>Syntax</strong> : $.session.clear();</span>
+          <span class="content-desc"><strong>Description</strong> : Using ".clear" we can easily clear all session variable.</span>
+        </div></br>
+        <div>
+          <h3><u>Check Your Session storage</u></h3>
+          <form id="session-check">
+            <input type="text" name="input-check" placeholder="Enter key" required />
+            <input type="submit" class="button" name="submit-check" value="Check" />
+          </form>
+          <span class="storage-val">Value is : <strong><span></span></strong></span>
+        </div></br>
+        <div>
+           <h3><u>For Add particular session variable</u></h3>
+          <form id="session-add">
+            <input type="text" name="session-add-key" placeholder="Enter key" required />
+            <input type="text" name="session-add-value" placeholder="Enter value" required />
+            <input class="button" type="submit"name="submit-session-add" value="Add session variable" />
+          </form>
+          <span class="response-add"><strong>Response</strong> : <span></span></span>
+          <span class="content-desc"><strong>Syntax</strong> : $.session.set('some key', 'a value');</span>
+          <span class="content-desc"><strong>Description</strong> : Using ".set" we can easily add value to session.</span>
+        </div></br>
+        <div>
+           <h3><u>For clear particular session variable</u></h3>
+          <form id="session-clear">
+            <input type="text" name="session-clear" placeholder="Enter key" required />
+            <input class="button" type="submit"name="submit-clear" value="Clear session variable" />
+          </form>
+          <span class="response-clear"><strong>Response</strong> : <span></span></span>
+          <span class="content-desc"><strong>Syntax</strong> : $.session.remove('some key');</span>
+          <span class="content-desc"><strong>Description</strong> : Using ".remove" we can remove particular session variable.</span>
+        </div>
+      </div>
+      <div class="right">
+        <div>
+          <span class="button pageload">Click me to load page</span>
+          <span class="content-desc"><strong>Description</strong> : Page loads if session is set.<br>Please add 'test' variable in left box to access this page.<br><strong>Ex</strong> : Key = 'test' & value = 'test'</span>
+        </div>
+        <div class="page-content">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

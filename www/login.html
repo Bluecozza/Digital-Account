@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
+<title>D-A</title>
+<link rel="stylesheet" href="css/framework7.css">
+<link rel="stylesheet" href="style.css">
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+<script src="js/app.js"></script>  
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquerysession.js"> </script>
+<script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
+    <script src="http://debug-software.intel.com/target/target-script-min.js#snszRxYWyNIGJcziFcsCMWc4BDzW_iBoSjnnwERotp8"></script>
+<script>
+$( document ).ready(function() {
+				 $.ajax({
+					url : "http://login.d-a.im", 
+				   type: "get", //form method
+				   dataType:"json", 
+				   success:function(data){
+					var i;
+					for(i = 0; i < data.length; i++) {
+						$("#dlink").append("<li id='dlink_" + data[i].d_id + "'>" + data[i].d_id + "(" + data[i].d_nama + "), Saldo: Rp. " + data[i].d_saldo + ",-</li>");
+					}
+					},
+				   error: function(xhr, Status, err) {
+					 $("Terjadi error : "+Status);
+				   }
+				 });
+});
+</script>
+</head>
+<body id="mobile_wrap">
+
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+
+
+    <div class="content-block">
+      <h4>Login</h4>
+            <div class="loginform">
+            <form id="LoginForm" method="post">
+            <label>Username:</label>
+            <input type="text" name="Username" value="" class="form_input required" />
+            <label>Password:</label>
+            <input type="password" name="Password" value="" class="form_input required" />
+            <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
+            </form>
+            </div>
+      <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
+    </div>
+
+
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/email.js"></script>
+  </body>
+</html>

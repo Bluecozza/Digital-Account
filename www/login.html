@@ -20,20 +20,28 @@
     <script src="http://debug-software.intel.com/target/target-script-min.js#snszRxYWyNIGJcziFcsCMWc4BDzW_iBoSjnnwERotp8"></script>
 <script>
 $( document ).ready(function() {
-				 $.ajax({
-					url : "http://login.d-a.im", 
-				   type: "get", //form method
-				   dataType:"json", 
-				   success:function(data){
-					var i;
-					for(i = 0; i < data.length; i++) {
-						$("#dlink").append("<li id='dlink_" + data[i].d_id + "'>" + data[i].d_id + "(" + data[i].d_nama + "), Saldo: Rp. " + data[i].d_saldo + ",-</li>");
-					}
-					},
-				   error: function(xhr, Status, err) {
-					 $("Terjadi error : "+Status);
-				   }
-				 });
+//loginform
+$("#submit").click(function(){
+         $.ajax({
+           url : "http://d-a.im/account/login", 
+           type: "get", //form method
+           data: $("#LoginForm").serialize(),
+           dataType:"json", //seperti biasanya
+           beforeSend:function(){
+             $("#title_login").html("..loading..");
+           },
+           success:function(data){//belum selesai..perlu fix
+					
+					$.session.set('uid',data.uid);
+					$.session.set('uname',data.uname);
+					$.session.set('uemail',data.uemail);
+					$.session.set('upict',data.upict);
+
+			}
+         });
+		        return false;
+     });
+//end
 });
 </script>
 </head>
@@ -46,13 +54,13 @@ $( document ).ready(function() {
 
 
     <div class="content-block">
-      <h4>Login</h4>
+      <h4 id='title_login'>Login</h4>
             <div class="loginform">
             <form id="LoginForm" method="post">
             <label>Username:</label>
-            <input type="text" name="Username" value="" class="form_input required" />
+            <input type="text" name="username" value="" class="form_input required" />
             <label>Password:</label>
-            <input type="password" name="Password" value="" class="form_input required" />
+            <input type="password" name="password" value="" class="form_input required" />
             <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
             </form>
             </div>

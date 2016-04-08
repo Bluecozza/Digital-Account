@@ -13,58 +13,71 @@
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 <script src="js/app.js"></script>  
+<script src="js/config.js"></script>  
 <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="js/jquerysession.js"> </script>
 <script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
-    <script src="http://debug-software.intel.com/target/target-script-min.js#snszRxYWyNIGJcziFcsCMWc4BDzW_iBoSjnnwERotp8"></script>
 <script>
-$( document ).ready(function() {
-//loginform
-$("#submit").click(function(){
-         $.ajax({
-           url : "http://d-a.im/account/login", 
-           type: "get", //form method
-           data: $("#LoginForm").serialize(),
-           dataType:"json", //seperti biasanya
-           beforeSend:function(){
-             $("#title_login").html("..loading..");
-           },
-           success:function(data){//belum selesai..perlu fix
-					
-					$.session.set('uid',data.uid);
-					$.session.set('uname',data.uname);
-					$.session.set('uemail',data.uemail);
-					$.session.set('upict',data.upict);
 
+$(document).ready(function() {
+
+	$("#submit").click(function() {
+		var datalogin = {
+			appid: appId,
+			appsecret: appSecret,
+			username: $("#username").val(),
+			password: $("#password").val()
+		};
+
+		$.ajax({
+			type: "get",
+			url : "http://d-a.im/api/account/login", 
+			data: datalogin,
+			dataType:"json", //seperti biasanya
+			beforeSend:function(){
+             $("#title_login").html(appName + " loading..");
+           },
+			success: function(data)
+			{
+			if(data.status=="OK"){
+					$("#title_login").html(data.u_name);
+					$.session.set('uid',data.u_id);
+					$.session.set('username',data.u_username);
+					$.session.set('uname',data.u_name);
+					$.session.set('uemail',data.u_email);
+					$.session.set('upicture',data.u_picture);
+					$.session.set('ustatus',data.u_status);
+			}else{
+				$("#title_login").html(data.status);
+				}
+				
 			}
-         });
-		        return false;
-     });
-//end
+		});
+		return false;
+	});
+
 });
+
+
+//////////////////
 </script>
 </head>
 <body id="mobile_wrap">
 
     <div class="statusbar-overlay"></div>
-
     <div class="panel-overlay"></div>
-
-
-
     <div class="content-block">
-      <h4 id='title_login'>Login</h4>
+      <h4 id='title_login'>LOGIN</h4>
             <div class="loginform">
             <form id="LoginForm" method="post">
             <label>Username:</label>
-            <input type="text" name="username" value="" class="form_input required" />
+            <input type="text" name="username" id="username" value="" class="form_input required" />
             <label>Password:</label>
-            <input type="password" name="password" value="" class="form_input required" />
+            <input type="password" name="password" id="password" value="" class="form_input required" />
             <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
             </form>
             </div>
-      <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
     </div>
 
 

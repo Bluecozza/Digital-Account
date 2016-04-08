@@ -17,21 +17,28 @@
 <script type="text/javascript" src="js/jquerysession.js"> </script>
 <script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
-    <script src="http://debug-software.intel.com/target/target-script-min.js#snszRxYWyNIGJcziFcsCMWc4BDzW_iBoSjnnwERotp8"></script>
 <script>
 	$( document ).ready(function() {
+	
+	
+	$("#logout").click(function() {
+
+	$.session.remove('username');
+	});
+
+
 //checking session username
 
-    //var checkkey = $( "input[name=input-check]").val();
-    var checkkey = 'username';
-    var answer = $.session.get(checkkey);
-    if(answer != undefined){
-      $("#status").html(answer);
+    var name = $.session.get("uname");
+    var username = $.session.get("username");
+    var pict = $.session.get("upicture");
+    if(username != undefined){
+      $("#status").html(name);
+      $(".user_thumb").html("<img src='data:image/jpeg;base64," +pict+ "' alt='' title='' />");
     }else{
-      //$("#status").html("Undefined");
+      //$("#status").html("Undefined"); 
 	  location.href = "login.html";
     }
-
 
 
 //end
@@ -46,9 +53,7 @@
 
     <div class="panel panel-left panel-cover">
       <div class="user_login_info">
-        <div class="user_thumb">
-        <img src="images/photos/photo8.jpg" alt="" title="" />
-        </div>
+        <div class="user_thumb"> </div>
         <h2 id='status'> </h2>
         <p>Edit your account settings</p>
               <nav class="list-nav-small">
@@ -57,7 +62,7 @@
                   <li class="tools-icon-small"><a href="help.html" class="close-panel">Settings</a></li>
                   <li class="lock-icon-small"><a href="features.html" class="close-panel">Account</a></li>
                   <li class="envelope-icon-small"><a href="features.html" class="close-panel">Messages</a></li>
-                  <li class="logout-icon-small"><a href="index.html" class="close-panel">Logout</a></li>
+                  <li class="logout-icon-small" id='logout'>logout</li> 
                 </ul>
               </nav>
       </div>
@@ -86,12 +91,12 @@
                       <div class="swiper-slide">
                           <nav class="list-nav">
                             <ul>
-                              <li class="about-icon"><a href="about.html">About</a></li>
+                              <li class="about-icon"><a href="about.html">Profile</a></li>
                               <li class="responsive-icon"><a href="#" data-panel="left" class="open-panel">Sidebar</a></li>
                               <li class="features-icon"><a href="features.html">Features</a></li>
                               <li class="photos-icon"><a href="photos.html">Gallery</a></li>
                               <li class="video-icon"><a href="videos.html">Videos</a></li>
-                              <li class="blog-icon"><a href="blog.html">Blog</a></li>
+                              <li class="blog-icon"><a href="blog.html">Chat</a></li>
                               <li class="toogle-icon"><a href="toogle.html">Toogle</a></li>
                               <li class="docs-icon"><a href="tabs.html">Tabs</a></li>
                               <li class="contact-icon"><a href="contact.html">Contact</a></li>

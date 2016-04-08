@@ -34,20 +34,21 @@ $(document).ready(function() {
 			type: "get",
 			url : "http://d-a.im/api/account/login", 
 			data: datalogin,
-			dataType:"json", //seperti biasanya
+			dataType:"jsonp", //seperti biasanya
 			beforeSend:function(){
              $("#title_login").html(appName + " loading..");
            },
 			success: function(data)
 			{
 			if(data.status=="OK"){
-					$("#title_login").html(data.u_name);
+					$("#title_login").html("success. Please wait..");
 					$.session.set('uid',data.u_id);
 					$.session.set('username',data.u_username);
 					$.session.set('uname',data.u_name);
 					$.session.set('uemail',data.u_email);
 					$.session.set('upicture',data.u_picture);
 					$.session.set('ustatus',data.u_status);
+					location.href = "index.html";
 			}else{
 				$("#title_login").html(data.status);
 				}
@@ -70,7 +71,7 @@ $(document).ready(function() {
     <div class="content-block">
       <h4 id='title_login'>LOGIN</h4>
             <div class="loginform">
-            <form id="LoginForm" method="post">
+            <form id="LoginForm">
             <label>Username:</label>
             <input type="text" name="username" id="username" value="" class="form_input required" />
             <label>Password:</label>

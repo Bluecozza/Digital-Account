@@ -14,7 +14,7 @@
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 <script src="js/app.js"></script>  
 <script src="js/config.js"></script>  
-<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="js/jquerysession.js"> </script>
 <script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
@@ -32,12 +32,13 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "get",
-			url : "http://d-a.im/api/account/login", 
+			url : "http://localhost/d-a/api/account/login", 
 			data: datalogin,
 			dataType:"jsonp", //seperti biasanya
 			beforeSend:function(){
              $("#title_login").html(appName + " loading..");
            },
+<<<<<<< HEAD
 			error: function(data) {
 				$("#title_login").html("Unknown error");
 			},
@@ -46,6 +47,17 @@ $(document).ready(function() {
 	switch (parseInt(data.status)) {
     case 404:
 			$("#title_login").html("user not found, incorrect username, or wrong password.");
+=======
+			error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+			},
+			success: function(data)
+			{
+			console.log(data);
+	switch (JSON.parse(data.status)) {
+    case 404:
+					$('#title_login').html("Error: User Not Found");
+>>>>>>> f86c8f6f32f54bdf106dfab9568a2218b016cf68
         break; 
     case 200:
 					$("#title_login").html("success. Please wait..");
@@ -58,16 +70,25 @@ $(document).ready(function() {
 					location.href = "index.html";
         break; 
     default: 
+<<<<<<< HEAD
 					$("#title_login").html("error");
 }
 			}
+=======
+					$('#title_login').html("error");
+}
+			},
+>>>>>>> f86c8f6f32f54bdf106dfab9568a2218b016cf68
 		});
 		return false;
 	});
 
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f86c8f6f32f54bdf106dfab9568a2218b016cf68
 </script>
 </head>
 <body id="mobile_wrap">

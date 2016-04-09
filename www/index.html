@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 <script src="js/app.js"></script>  
-<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript" src="js/jquerysession.js"> </script>
 <script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
@@ -29,8 +29,10 @@
     var name = $.session.get("uname");
     var username = $.session.get("username");
     var pict = $.session.get("upicture");
+    var status = $.session.get("ustatus");
     if(username != undefined){
-      $("#status").html(name);
+      $("#name").html(name);
+      $(".strstatus").html(status);
       $(".user_thumb").html("<img src='data:image/jpeg;base64," +pict+ "' alt='' title='' />");
     }else{
       //$("#status").html("Undefined"); 
@@ -51,8 +53,8 @@
     <div class="panel panel-left panel-cover">
       <div class="user_login_info">
         <div class="user_thumb"> </div>
-        <h2 id='status'> </h2>
-        <p>Edit your account settings</p>
+        <h2 id='name'> </h2>
+        <p class='strstatus'></p>
               <nav class="list-nav-small">
                 <ul>
                   <li class="about-icon-small"><a href="about.html" class="close-panel">Profile</a></li>

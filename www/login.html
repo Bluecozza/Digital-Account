@@ -38,9 +38,16 @@ $(document).ready(function() {
 			beforeSend:function(){
              $("#title_login").html(appName + " loading..");
            },
+			error: function(data) {
+				alert("hhaha" + data);
+			},
 			success: function(data)
 			{
-			if(data.status=="OK"){
+	switch (parseInt(data.status)) {
+    case 404:
+					alert(data.status);
+        break; 
+    case 200:
 					$("#title_login").html("success. Please wait..");
 					$.session.set('uid',data.u_id);
 					$.session.set('username',data.u_username);
@@ -49,10 +56,10 @@ $(document).ready(function() {
 					$.session.set('upicture',data.u_picture);
 					$.session.set('ustatus',data.u_status);
 					location.href = "index.html";
-			}else{
-				$("#title_login").html(data.status);
-				}
-				
+        break; 
+    default: 
+					$("#title_login").html("error");
+}
 			}
 		});
 		return false;
@@ -61,7 +68,30 @@ $(document).ready(function() {
 });
 
 
-//////////////////
+/*/////////////////
+$(document).ready(function(){  
+    $('#ok').click(function(){  
+        var uname = document.getElementById("uname").value;
+        var password = document.getElementById("pwd").value;
+        var JSONObject= {
+             "uname":uname,
+             "password":password
+             };
+
+        $.ajax({  
+            url:'http://localhost:8090/LoginAuthRWS/rest/orders',  
+            type:'post',
+            data :  JSONObject,      
+            dataType: 'JSON',
+            success: function(data) { 
+                     var jsonData = $.parseJSON(data); //if data is not json
+                     $('#name').val(jsonData.name);  
+                     $('#email').val(jsonData.email);  
+                }  
+        });  
+    });  
+});  
+*/
 </script>
 </head>
 <body id="mobile_wrap">

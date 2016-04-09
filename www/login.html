@@ -39,13 +39,13 @@ $(document).ready(function() {
              $("#title_login").html(appName + " loading..");
            },
 			error: function(data) {
-				alert("hhaha" + data);
+				$("#title_login").html("Unknown error");
 			},
 			success: function(data)
 			{
 	switch (parseInt(data.status)) {
     case 404:
-					alert(data.status);
+			$("#title_login").html("user not found, incorrect username, or wrong password.");
         break; 
     case 200:
 					$("#title_login").html("success. Please wait..");
@@ -68,30 +68,6 @@ $(document).ready(function() {
 });
 
 
-/*/////////////////
-$(document).ready(function(){  
-    $('#ok').click(function(){  
-        var uname = document.getElementById("uname").value;
-        var password = document.getElementById("pwd").value;
-        var JSONObject= {
-             "uname":uname,
-             "password":password
-             };
-
-        $.ajax({  
-            url:'http://localhost:8090/LoginAuthRWS/rest/orders',  
-            type:'post',
-            data :  JSONObject,      
-            dataType: 'JSON',
-            success: function(data) { 
-                     var jsonData = $.parseJSON(data); //if data is not json
-                     $('#name').val(jsonData.name);  
-                     $('#email').val(jsonData.email);  
-                }  
-        });  
-    });  
-});  
-*/
 </script>
 </head>
 <body id="mobile_wrap">

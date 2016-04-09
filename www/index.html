@@ -95,7 +95,7 @@
                               <li class="features-icon"><a href="features.html">Features</a></li>
                               <li class="photos-icon"><a href="photos.html">Gallery</a></li>
                               <li class="video-icon"><a href="videos.html">Videos</a></li>
-                              <li class="blog-icon"><a href="blog.html">Chat</a></li>
+                              <li class="blog-icon"><a href="chat.html">Chat</a></li>
                               <li class="toogle-icon"><a href="toogle.html">Toogle</a></li>
                               <li class="docs-icon"><a href="tabs.html">Tabs</a></li>
                               <li class="contact-icon"><a href="contact.html">Contact</a></li>
@@ -147,11 +147,11 @@
     <div class="content-block">
       <h4>Login</h4>
             <div class="loginform">
-            <form id="LoginForm" method="post">
+            <form id="LoginForm">
             <label>Username:</label>
-            <input type="text" name="Username" value="" class="form_input required" />
+            <input type="text" name="username" id="username" value="" class="form_input required" />
             <label>Password:</label>
-            <input type="password" name="Password" value="" class="form_input required" />
+            <input type="password" name="password" id="password" value="" class="form_input required" />
             <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
             </form>
             </div>
@@ -175,6 +175,8 @@
     </div>
     </div>
 <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="js/strophe.js" type="text/javascript"></script>
+<script src="js/xmpp.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/framework7.min.js"></script>
 <script type="text/javascript" src="js/my-app.js"></script>
 <script type="text/javascript" src="js/jquery.swipebox.js"></script>

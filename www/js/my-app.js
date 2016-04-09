@@ -14,9 +14,9 @@ var $$ = Dom7;
 
 // Add main View
 var mainView = myApp.addView('.view-main', {
-    // Enable dynamic Navbar
     dynamicNavbar: false,
 });
+/////////////////////////////////////////////////////////////////////ALL FUNCTION GOES HERE//////////////////////
 $$(document).on('pageInit', function (e) {
   		$(".swipebox").swipebox();
 		$(".videocontainer").fitVids();
@@ -27,8 +27,63 @@ $$(document).on('pageInit', function (e) {
 		return false;
 		}
 		});
-		
+////////////////////////////////////////////////
+///// LOGIN----------------
+$("#submit").click(function() {
+		var datalogin = {
+			appid: appId,
+			appsecret: appSecret,
+			username: $("#username").val(),
+			password: $("#password").val()
+		};
 
+		$.ajax({
+			type: "get",
+			url : "http://d-a.im/api/account/login", 
+			data: datalogin,
+			dataType:"jsonp", //seperti biasanya
+			beforeSend:function(){
+             $("#title_login").html(appName + " loading..");
+           },
+			error: function(data) {
+				$("#title_login").html("Unknown error");
+			},
+			success: function(data)
+			{
+	switch (JSON.parse(data.status)) {
+    case 404:
+					$('#title_login').html("Error: User Not Found");
+        break; 
+    case 200:
+					$("#title_login").html("success. Please wait..");
+					$.session.set('uid',data.u_id);
+					$.session.set('username',data.u_username);
+					$.session.set('uname',data.u_name);
+					$.session.set('uemail',data.u_email);
+					$.session.set('upicture',data.u_picture);
+					$.session.set('ustatus',data.u_status);
+//------------------mulai konek ke jabserver
+			connection = new Strophe.Connection(BOSH_SERVICE);
+			connection.connect(data.u_username+'@d-a.im', password, onConnect);//konek
+			//connection.disconnect(); //diskonek
+//---------------------------------------------------------------------------------------------
+					location.href = "index.html";
+        break; 
+    default: 
+					$('#title_login').html("error");
+	}
+			},
+
+		});
+		return false;
+	});
+
+
+//// AKHIR LOGIN ------------------------
+		$(".chat_title").html("Chat With ");
+
+		
+//////////////////////////
 		$(".posts li").hide();	
 		size_li = $(".posts li").size();
 		x=3;

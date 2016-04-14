@@ -1,186 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-<link rel="apple-touch-startup-image" href="images/apple-touch-startup-image-320x460.png" />
-<title>D-A</title>
-<link rel="stylesheet" href="css/framework7.css">
-<link rel="stylesheet" href="style.css">
-<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
-<script src="js/app.js"></script>  
-<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
-<script type="text/javascript" src="js/jquerysession.js"> </script>
-<script src="cordova.js"></script>         <!-- phantom library, needed for Cordova api calls, added during build -->
-    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
-<script>
-	$( document ).ready(function() {
-	$("#logout").click(function() {
-	$.session.remove('username');
-	});
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
 
+    <head>
+        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.colors.min.css">
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.material.min.css" class="uib-framework-theme">
+        <title>Authentication</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
 
-//checking session username
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
 
-    var name = $.session.get("uname");
-    var username = $.session.get("username");
-    var pict = $.session.get("upicture");
-    var status = $.session.get("ustatus");
-    if(username != undefined){
-      $("#name").html(name);
-      $(".strstatus").html(status);
-      $(".user_thumb").html("<img src='data:image/jpeg;base64," +pict+ "' alt='' title='' />");
-    }else{
-      //$("#status").html("Undefined"); 
-	  location.href = "login.html";
-    }
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
 
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
-//end
-});
-</script>
-</head>
-<body id="mobile_wrap">
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
 
-    <div class="statusbar-overlay"></div>
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
 
-    <div class="panel-overlay"></div>
+        <script src="js/app.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/jquery-1.12.1.min.js"></script>
+        <script src="js/jquerysession.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="framework7/js/framework7.min.js"></script>
+        <script type="application/javascript" src="js/pull-to-refresh.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
 
-    <div class="panel panel-left panel-cover">
-      <div class="user_login_info">
-        <div class="user_thumb"> </div>
-        <h2 id='name'> </h2>
-        <p class='strstatus'></p>
-              <nav class="list-nav-small">
-                <ul>
-                  <li class="about-icon-small"><a href="about.html" class="close-panel">Profile</a></li>
-                  <li class="tools-icon-small"><a href="help.html" class="close-panel">Settings</a></li>
-                  <li class="lock-icon-small"><a href="features.html" class="close-panel">Account</a></li>
-                  <li class="envelope-icon-small"><a href="features.html" class="close-panel">Messages</a></li>
-                  <li class="logout-icon-small" id='logout'><a href='#'>logout</a></li> 
-                </ul>
-              </nav>
-      </div>
-    </div>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+    </head>
 
+    <body>
+        <div class="panel-overlay"></div>
+        <div class="uwrap views">
+            <div class="upage vertical-col left view-main view pull-to-refresh-content" id="mainpage" data-ptr-distance="44">
+                <div class="pages">
 
-    <div class="views">
+                    <div class="page toolbar-fixed">
 
-      <div class="view view-main">
+                        <div class="page-content upage-content content-area vertical-col" id="page_2_23">
 
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="center sliding"><div class="logo_title">dIGITALISt</div></div>
-          </div>
-        </div>
+                            <div class="widget uib_w_5 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="img/login.png" alt="Click to Login" id="login" class="open-login-screen">
 
-        <div class="pages navbar-through toolbar-through">
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div>
+                            <div class="widget uib_w_6 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <a href="#" class="open-panel">
+                                        <img src="img/signup.png">
+                                    </a>
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div>
 
-          <div data-page="index" class="page homepage">
-            <div class="page-content">
-            
-                  <!-- Slider -->
-                  <div class="swiper-container swiper-init" data-effect="slide" data-pagination=".swiper-pagination">
-                    <div class="swiper-wrapper">
-                    
-                      <div class="swiper-slide">
-                          <nav class="list-nav">
-                            <ul>
-                              <li class="about-icon"><a href="about.html">Profile</a></li>
-                              <li class="responsive-icon"><a href="#" data-panel="left" class="open-panel">Sidebar</a></li>
-                              <li class="features-icon"><a href="features.html">Features</a></li>
-                              <li class="photos-icon"><a href="photos.html">Gallery</a></li>
-                              <li class="video-icon"><a href="videos.html">Videos</a></li>
-                              <li class="blog-icon"><a href="chat.html">Chat</a></li>
-                              <li class="toogle-icon"><a href="toogle.html">Toogle</a></li>
-                              <li class="docs-icon"><a href="tabs.html">Tabs</a></li>
-                              <li class="contact-icon"><a href="contact.html">Contact</a></li>
-                            </ul>
-                          </nav>
-                      </div>
-                      
-                      <div class="swiper-slide">
-                          <nav class="list-nav-half">
-                            <ul>
-                              <li class="blog-icon-half"><a href="blog.html">Blog</a></li>
-                              <li class="toogle-icon-half"><a href="toogle.html">Toogle</a></li>
-                              <li class="docs-icon-half"><a href="tabs.html">Tabs</a></li>
-                              <li class="contact-icon-half"><a href="contact.html">Contact</a></li>
-                            </ul>
-                          </nav>
-                      </div> 
-                      <div class="swiper-slide">
-                          <span>CALL <br /> US NOW</span>
-                          <span class="subtitle">get in touch</span>
-                          <a href="tel:1234 567 89" class="swiper_read_more">click to call now!</a>                      
-                      </div>
-                          
+                        </div>
+
                     </div>
-                    <div class="swiper-pagination"></div>
-                  </div>     
-                           
-            </div>
-          </div>
-        </div>
-      
-        <div class="toolbar">
-              <div class="toolbar-inner">
-              <ul class="toolbar_icons icons_4row">
-              <li><a href="#" data-popup=".popup-login" class="open-popup"><img src="images/icons/white/user.png" alt="" title="" /></a></li>
-              <li><a href="#" data-panel="left" class="open-panel"><img src="images/icons/white/lock.png" alt="" title="" /></a></li>
-              <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="images/icons/white/heart.png" alt="" title="" /></a></li>
-              <li><a href="contact.html"><img src="images/icons/white/envelope.png" alt="" title="" /></a></li>
-              </ul>
-              </div>  
-        </div>
-        
 
-      </div>
-    </div>
-    
-    <!-- About Popup -->
-    <div class="popup popup-login">
-    <div class="content-block">
-      <h4>Login</h4>
-            <div class="loginform">
-            <form id="LoginForm">
-            <label>Username:</label>
-            <input type="text" name="username" id="username" value="" class="form_input required" />
-            <label>Password:</label>
-            <input type="password" name="password" id="password" value="" class="form_input required" />
-            <input type="submit" name="submit" class="form_submit" id="submit" value="Login" />
-            </form>
+                </div>
             </div>
-      <div class="close_popup_button_gray"><a href="#" class="close-popup">Close</a></div>
-    </div>
-    </div>
-    <!-- Services Popup -->
-    <div class="popup popup-social">
-    <div class="content-block">
-      <h4>Social Share</h4>
-      <p>Share icons solution that allows you share and increase your social popularity.</p>
-      <ul class="social_share">
-      <li><a href="#"><img src="images/icons/white/twitter.png" alt="" title="" /></a></li>
-      <li><a href="#"><img src="images/icons/white/facebook.png" alt="" title="" /></a></li>
-      <li><a href="#"><img src="images/icons/white/googleplus.png" alt="" title="" /></a></li>
-      <li><a href="#"><img src="images/icons/white/dribbble.png" alt="" title="" /></a></li>
-      <li><a href="#"><img src="images/icons/white/linkedin.png" alt="" title="" /></a></li>
-      <li><a href="#"><img src="images/icons/white/pinterest.png" alt="" title="" /></a></li>
-      </ul>
-      <div class="close_popup_button"><a href="#" class="close-popup">Close</a></div>
-    </div>
-    </div>
-<script src="js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="js/strophe.js" type="text/javascript"></script>
-<script src="js/xmpp.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/framework7.min.js"></script>
-<script type="text/javascript" src="js/my-app.js"></script>
-<script type="text/javascript" src="js/jquery.swipebox.js"></script>
-<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="js/email.js"></script>
-  </body>
+        </div>
+        <div class="panel panel-left panel-cover wrap-element uib_w_7" data-uib="framework7/left_sidebar" data-ver="0" id="signup-left">
+            <div class="col uib_col_2 single-col" data-uib="layout/col" data-ver="0">
+                <div class="content-block">
+                    <p>Registration</p>
+                    <form id="formSignup">
+                        <div class="list-block">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Username</div>
+                                        <div class="item-input">
+                                            <input type="text" name="username2" id="username2" placeholder="Your username">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Password</div>
+                                        <div class="item-input">
+                                            <input type="password" name="password2" id="password2" placeholder="Your password">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Email</div>
+                                        <div class="item-input">
+                                            <input type="text" name="email2" id="email2" placeholder="Your Email">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label">Name</div>
+                                        <div class="item-input">
+                                            <input type="text" name="name2" id="name2" placeholder="Your name">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li><span id="loading"></span>
+                                </li>
+                                <li>
+                                    <a id="btnSignup" class="button widget uib_w_8 d-margins" data-uib="framework7/button" data-ver="0"><span>Register</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    <p><a href="#" class="close-panel">Close me</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script type="application/javascript" src="framework7/my-app.js"></script>
+        <div class="login-screen body-element uib_w_3" data-uib="framework7/login" data-ver="0">
+            <div class="view">
+                <div class="page">
+                    <div class="page-content login-screen-content">
+                        <div class="login-screen-title">Login</div>
+                        <form>
+                            <div class="list-block">
+                                <ul>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Username</div>
+                                            <div class="item-input">
+                                                <input type="text" name="username" id="username" placeholder="Your username">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Password</div>
+                                            <div class="item-input">
+                                                <input type="password" name="password" id="password" placeholder="Your password">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="list-block">
+                                <ul>
+                                    <li><span id="loading2"></span>
+                                    </li>
+                                    <li><a id="btnLogin" class="button widget uib_w_8 d-margins" data-uib="framework7/button" data-ver="0"><span>Login</span></a>
+                                    </li>
+                                </ul>
+                                <div class="list-block-label">
+                                    <p>Dont have an account?</p>
+                                    <p><a href="#" class="close-login-screen">Close Login Screen</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
 </html>

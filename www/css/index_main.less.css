@@ -1,0 +1,1511 @@
+/*
+
+  Warning:  This CSS file has been auto-generated from a .less file.  If you edit it your edits will be lost the next time LessCSS is run.
+
+  It would be best to make a separate CSS file and place any overriding CSS in there.  If you must access the original CSS, do so by editing the .less files.
+
+*/
+/* global settings */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+}
+/* grid */
+.grid {
+  width: 100%;
+}
+.upage-content > .grid {
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* gutter around whole design */
+/*
+.upage-content > .grid-pad {
+  padding: @gutter @gutter 0px @gutter;
+}
+*/
+/* column */
+.urow:not(.cright) > .col {
+  float: left;
+}
+.urow.cright > .col {
+  float: right;
+}
+.col {
+  position: relative;
+  min-height: 1px;
+}
+.content-area {
+  position: relative;
+}
+/* row */
+.urow {
+  clear: both;
+  position: relative;
+}
+form.urow {
+  margin-bottom: 0px;
+}
+.widget {
+  position: relative;
+}
+/* for widgets and the like
+   <div class="table-thing widget">
+    <div class="narrow-control w85"> my width is set </div>
+    <div class="wide-control"> my width is 100%, minus the set width of the narrow-control</div>
+   </div>
+
+   .w85 { width:85px; }
+*/
+.vertical-col > *,
+.vertical-col > .table-thing,
+.vertical-col > .afScrollPanel > .table-thing,
+.wrapping-col > .no_wrap.table-thing,
+.wrapping-col > .afScrollPanel > .no_wrap.table-thing {
+  width: 100%;
+}
+#afui .vertical-col > .afScrollPanel > .widget,
+#afui .vertical-col > .widget,
+.vertical-col > .widget,
+.camera > .widget {
+  width: calc(100% - 10px);
+  margin-left: 5px;
+}
+.col > .vertical-col > .widget {
+  width: 100%;
+  margin-left: 0;
+}
+.table-thing {
+  display: table;
+}
+.wide-control {
+  display: table-cell;
+  width: 100%;
+}
+.narrow-control {
+  display: table-cell;
+}
+/* wrapping column */
+.wrapping-col.right > *,
+.wrapping-col.right > .afScrollPanel > * {
+  float: right;
+}
+/* margin: 0 5px;   move margin to another class */
+.wrapping-col.left > *,
+.wrapping-col.left > .afScrollPanel > * {
+  float: left;
+}
+/* center and right alignment */
+.vertical-col.center {
+  text-align: center;
+}
+.vertical-col.right {
+  text-align: right;
+}
+.vertical-col.right > *,
+.col > .vertical-col.right > .widget,
+.vertical-col.right > .afScrollPanel > * {
+  margin-left: auto;
+}
+.vertical-col.center > *,
+.col > .vertical-col.center > .widget,
+.vertical-col.center > .afScrollPanel > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapping-col:not(.horiz-area) > .no_wrap,
+.wrapping-col:not(.horiz-area) > .afScrollPanel > .no_wrap {
+  float: none;
+  clear: both;
+  /* margin: 8px 0px; */
+
+}
+.center-h-v-col > .widget {
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  margin-top: 0 !important;
+}
+/* shim */
+.uib_shim {
+  clear: both;
+  float: none !important;
+  width: 100%;
+  position: relative;
+  height: 0px;
+  line-height: 0px;
+  font-size: 0px;
+  display: block;
+}
+/* content-box fix for box-sizing */
+.content-box,
+.content-box:before,
+.content-box:after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* page */
+.hidden:not(.afPopup) {
+  display: none;
+}
+.upage-content,
+.upage-outer {
+  position: relative;
+}
+html,
+body {
+  height: 100%;
+}
+body:not(#afui) .upage,
+body:not(#afui) .upage-content {
+  height: 100%;
+}
+body:not(#afui) .upage-outer {
+  height: auto;
+}
+/* position relative works fine. but fixed can be elected as well */
+/* .upage-content, .upage-outer { position: fixed; height:100%; } */
+.upage {
+  overflow-x: hidden;
+}
+.upage-content {
+  z-index: 1;
+}
+#afui .upage {
+  padding: 0;
+}
+/* sidebars and crossbars */
+.uib_sidebar {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+}
+.uib_crossbar {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+}
+.leftbar,
+.rightbar {
+  z-index: 2;
+}
+.reveal.leftbar {
+  left: 0px;
+  z-index: 0;
+}
+.reveal.rightbar {
+  right: 0px;
+  z-index: 0;
+}
+.leftbar.oh,
+.rightbar.oh {
+  z-index: 3;
+}
+.reveal {
+  z-index: 0;
+  visibility: hidden;
+}
+.topbar {
+  z-index: 3;
+}
+.topbar.reveal {
+  top: 0px;
+  z-index: 0;
+}
+.botbar {
+  z-index: 3;
+  position: fixed;
+}
+.botbar.oh,
+.topbar.oh {
+  z-index: 4;
+}
+.sidebar-content {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  margin: 0;
+}
+.sidebar-thumb {
+  position: relative;
+  margin: 0;
+  /* background-image:url('images/gripper.png'); */
+}
+.template {
+  display: none !important;
+}
+.uib-absolute {
+  position: absolute !important;
+}
+.content-block-inner {
+  box-sizing: content-box;
+}
+.navbar-inner .widget-container {
+  display: inline-flex;
+}
+.searchbar {
+  width: 100% !important;
+  margin: 0 !important;
+}
+#afui .panel {
+  padding: 0px;
+}
+#afui .pages {
+  height: 100%;
+}
+#afui .upage-outer {
+  height: 100%;
+}
+body#afui.v2 {
+  overflow-y: auto !important;
+}
+body#afui .panel > .widget > input[type="radio"] + label,
+body#afui .panel > .widget > input[type="checkbox"] + label {
+  padding-top: 14px;
+}
+#afui .table-thing input[type="radio"] + label,
+#afui .table-thing input[type="checkbox"] + label {
+  padding-top: 6px !important;
+}
+input.toggle + label:after {
+  width: 32px;
+}
+body#afui .splt {
+  width: 200px;
+}
+.uib-card {
+  position: relative;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.card-header,
+.card-left,
+.card-footer,
+.card-right {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+.card-header {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: auto;
+}
+.card-footer {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: auto;
+}
+.card-left {
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+.card-right {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.uib-card section .widget-divider:only-of-type {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: auto !important;
+  width: auto !important;
+}
+.uib-card .widget-divider:only-of-type div {
+  height: 100%;
+}
+.card_col > .widget {
+  display: inline-block;
+  column-break-inside: avoid;
+}
+@media all {
+  .card-columns-4 {
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-gap: 10px;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-fill: balance;
+    -webkit-column-fill: balance;
+    -moz-column-fill: balance;
+  }
+}
+@media all {
+  .section-dimension-5 .card-header {
+    height: 40px;
+  }
+  .section-dimension-5 .card-footer {
+    height: 40px;
+  }
+  .section-dimension-5 .card-left {
+    width: 50px;
+  }
+  .section-dimension-5 .card-right {
+    width: 50px;
+  }
+  .section-dimension-5 {
+    min-height: 100px;
+  }
+  .section-dimension-5 {
+    min-width: 100%;
+  }
+  div.section-dimension-5.header-on-left .card-left {
+    top: 40px;
+  }
+  div.section-dimension-5.header-on-left .card-header {
+    left: 0px;
+  }
+  div.section-dimension-5.left-on-header .card-left {
+    top: 0px;
+  }
+  div.section-dimension-5.left-on-header .card-header {
+    left: 50px;
+  }
+  div.section-dimension-5.header-on-right .card-right {
+    top: 40px;
+  }
+  div.section-dimension-5.header-on-right .card-header {
+    right: 0px;
+  }
+  div.section-dimension-5.right-on-header .card-right {
+    top: 0px;
+  }
+  div.section-dimension-5.right-on-header .card-header {
+    right: 50px;
+  }
+  div.section-dimension-5.footer-on-left .card-left {
+    bottom: 40px;
+  }
+  div.section-dimension-5.footer-on-left .card-footer {
+    left: 0px;
+  }
+  div.section-dimension-5.left-on-footer .card-left {
+    bottom: 0px;
+  }
+  div.section-dimension-5.left-on-footer .card-footer {
+    left: 50px;
+  }
+  div.section-dimension-5.footer-on-right .card-right {
+    bottom: 40px;
+  }
+  div.section-dimension-5.footer-on-right .card-footer {
+    right: 0px;
+  }
+  div.section-dimension-5.right-on-footer .card-right {
+    bottom: 0px;
+  }
+  div.section-dimension-5.right-on-footer .card-footer {
+    right: 50px;
+  }
+  .section-dimension-5.cpad-1 {
+    padding: 40px 0px 0px 0px;
+  }
+  .section-dimension-5.cpad-1 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-8 {
+    padding: 0px 50px 0px 0px;
+  }
+  .section-dimension-5.cpad-8 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-9 {
+    padding: 40px 50px 0px 0px;
+  }
+  .section-dimension-5.cpad-9 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-4 {
+    padding: 0px 0px 40px 0px;
+  }
+  .section-dimension-5.cpad-4 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-5 {
+    padding: 40px 0px 40px 0px;
+  }
+  .section-dimension-5.cpad-5 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-12 {
+    padding: 0px 50px 40px 0px;
+  }
+  .section-dimension-5.cpad-12 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-13 {
+    padding: 40px 50px 40px 0px;
+  }
+  .section-dimension-5.cpad-13 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-2 {
+    padding: 0px 0px 0px 50px;
+  }
+  .section-dimension-5.cpad-2 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-3 {
+    padding: 40px 0px 0px 50px;
+  }
+  .section-dimension-5.cpad-3 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-10 {
+    padding: 0px 50px 0px 50px;
+  }
+  .section-dimension-5.cpad-10 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-11 {
+    padding: 40px 50px 0px 50px;
+  }
+  .section-dimension-5.cpad-11 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-6 {
+    padding: 0px 0px 40px 50px;
+  }
+  .section-dimension-5.cpad-6 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-7 {
+    padding: 40px 0px 40px 50px;
+  }
+  .section-dimension-5.cpad-7 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-14 {
+    padding: 0px 50px 40px 50px;
+  }
+  .section-dimension-5.cpad-14 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-15 {
+    padding: 40px 50px 40px 50px;
+  }
+  .section-dimension-5.cpad-15 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-5.cpad-0 {
+    padding: 0px 0px 0px 0px;
+  }
+  .section-dimension-5.cpad-0 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+@media all {
+  .section-dimension-6 .card-header {
+    height: 40px;
+  }
+  .section-dimension-6 .card-footer {
+    height: 40px;
+  }
+  .section-dimension-6 .card-left {
+    width: 50px;
+  }
+  .section-dimension-6 .card-right {
+    width: 50px;
+  }
+  .section-dimension-6 {
+    min-height: 100px;
+  }
+  .section-dimension-6 {
+    min-width: 100%;
+  }
+  div.section-dimension-6.header-on-left .card-left {
+    top: 40px;
+  }
+  div.section-dimension-6.header-on-left .card-header {
+    left: 0px;
+  }
+  div.section-dimension-6.left-on-header .card-left {
+    top: 0px;
+  }
+  div.section-dimension-6.left-on-header .card-header {
+    left: 50px;
+  }
+  div.section-dimension-6.header-on-right .card-right {
+    top: 40px;
+  }
+  div.section-dimension-6.header-on-right .card-header {
+    right: 0px;
+  }
+  div.section-dimension-6.right-on-header .card-right {
+    top: 0px;
+  }
+  div.section-dimension-6.right-on-header .card-header {
+    right: 50px;
+  }
+  div.section-dimension-6.footer-on-left .card-left {
+    bottom: 40px;
+  }
+  div.section-dimension-6.footer-on-left .card-footer {
+    left: 0px;
+  }
+  div.section-dimension-6.left-on-footer .card-left {
+    bottom: 0px;
+  }
+  div.section-dimension-6.left-on-footer .card-footer {
+    left: 50px;
+  }
+  div.section-dimension-6.footer-on-right .card-right {
+    bottom: 40px;
+  }
+  div.section-dimension-6.footer-on-right .card-footer {
+    right: 0px;
+  }
+  div.section-dimension-6.right-on-footer .card-right {
+    bottom: 0px;
+  }
+  div.section-dimension-6.right-on-footer .card-footer {
+    right: 50px;
+  }
+  .section-dimension-6.cpad-1 {
+    padding: 40px 0px 0px 0px;
+  }
+  .section-dimension-6.cpad-1 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-8 {
+    padding: 0px 50px 0px 0px;
+  }
+  .section-dimension-6.cpad-8 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-9 {
+    padding: 40px 50px 0px 0px;
+  }
+  .section-dimension-6.cpad-9 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-4 {
+    padding: 0px 0px 40px 0px;
+  }
+  .section-dimension-6.cpad-4 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-5 {
+    padding: 40px 0px 40px 0px;
+  }
+  .section-dimension-6.cpad-5 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-12 {
+    padding: 0px 50px 40px 0px;
+  }
+  .section-dimension-6.cpad-12 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-13 {
+    padding: 40px 50px 40px 0px;
+  }
+  .section-dimension-6.cpad-13 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-2 {
+    padding: 0px 0px 0px 50px;
+  }
+  .section-dimension-6.cpad-2 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-3 {
+    padding: 40px 0px 0px 50px;
+  }
+  .section-dimension-6.cpad-3 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-10 {
+    padding: 0px 50px 0px 50px;
+  }
+  .section-dimension-6.cpad-10 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-11 {
+    padding: 40px 50px 0px 50px;
+  }
+  .section-dimension-6.cpad-11 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-6 {
+    padding: 0px 0px 40px 50px;
+  }
+  .section-dimension-6.cpad-6 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-7 {
+    padding: 40px 0px 40px 50px;
+  }
+  .section-dimension-6.cpad-7 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-14 {
+    padding: 0px 50px 40px 50px;
+  }
+  .section-dimension-6.cpad-14 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-15 {
+    padding: 40px 50px 40px 50px;
+  }
+  .section-dimension-6.cpad-15 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-6.cpad-0 {
+    padding: 0px 0px 0px 0px;
+  }
+  .section-dimension-6.cpad-0 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+@media all {
+  .section-dimension-7 .card-header {
+    height: 40px;
+  }
+  .section-dimension-7 .card-footer {
+    height: 40px;
+  }
+  .section-dimension-7 .card-left {
+    width: 50px;
+  }
+  .section-dimension-7 .card-right {
+    width: 50px;
+  }
+  .section-dimension-7 {
+    min-height: 100px;
+  }
+  .section-dimension-7 {
+    min-width: 100%;
+  }
+  div.section-dimension-7.header-on-left .card-left {
+    top: 40px;
+  }
+  div.section-dimension-7.header-on-left .card-header {
+    left: 0px;
+  }
+  div.section-dimension-7.left-on-header .card-left {
+    top: 0px;
+  }
+  div.section-dimension-7.left-on-header .card-header {
+    left: 50px;
+  }
+  div.section-dimension-7.header-on-right .card-right {
+    top: 40px;
+  }
+  div.section-dimension-7.header-on-right .card-header {
+    right: 0px;
+  }
+  div.section-dimension-7.right-on-header .card-right {
+    top: 0px;
+  }
+  div.section-dimension-7.right-on-header .card-header {
+    right: 50px;
+  }
+  div.section-dimension-7.footer-on-left .card-left {
+    bottom: 40px;
+  }
+  div.section-dimension-7.footer-on-left .card-footer {
+    left: 0px;
+  }
+  div.section-dimension-7.left-on-footer .card-left {
+    bottom: 0px;
+  }
+  div.section-dimension-7.left-on-footer .card-footer {
+    left: 50px;
+  }
+  div.section-dimension-7.footer-on-right .card-right {
+    bottom: 40px;
+  }
+  div.section-dimension-7.footer-on-right .card-footer {
+    right: 0px;
+  }
+  div.section-dimension-7.right-on-footer .card-right {
+    bottom: 0px;
+  }
+  div.section-dimension-7.right-on-footer .card-footer {
+    right: 50px;
+  }
+  .section-dimension-7.cpad-1 {
+    padding: 40px 0px 0px 0px;
+  }
+  .section-dimension-7.cpad-1 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-8 {
+    padding: 0px 50px 0px 0px;
+  }
+  .section-dimension-7.cpad-8 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-9 {
+    padding: 40px 50px 0px 0px;
+  }
+  .section-dimension-7.cpad-9 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-4 {
+    padding: 0px 0px 40px 0px;
+  }
+  .section-dimension-7.cpad-4 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-5 {
+    padding: 40px 0px 40px 0px;
+  }
+  .section-dimension-7.cpad-5 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-12 {
+    padding: 0px 50px 40px 0px;
+  }
+  .section-dimension-7.cpad-12 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-13 {
+    padding: 40px 50px 40px 0px;
+  }
+  .section-dimension-7.cpad-13 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-2 {
+    padding: 0px 0px 0px 50px;
+  }
+  .section-dimension-7.cpad-2 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-3 {
+    padding: 40px 0px 0px 50px;
+  }
+  .section-dimension-7.cpad-3 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-10 {
+    padding: 0px 50px 0px 50px;
+  }
+  .section-dimension-7.cpad-10 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-11 {
+    padding: 40px 50px 0px 50px;
+  }
+  .section-dimension-7.cpad-11 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-6 {
+    padding: 0px 0px 40px 50px;
+  }
+  .section-dimension-7.cpad-6 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-7 {
+    padding: 40px 0px 40px 50px;
+  }
+  .section-dimension-7.cpad-7 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-14 {
+    padding: 0px 50px 40px 50px;
+  }
+  .section-dimension-7.cpad-14 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-15 {
+    padding: 40px 50px 40px 50px;
+  }
+  .section-dimension-7.cpad-15 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-7.cpad-0 {
+    padding: 0px 0px 0px 0px;
+  }
+  .section-dimension-7.cpad-0 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+@media all {
+  .section-dimension-8 .card-header {
+    height: 40px;
+  }
+  .section-dimension-8 .card-footer {
+    height: 40px;
+  }
+  .section-dimension-8 .card-left {
+    width: 50px;
+  }
+  .section-dimension-8 .card-right {
+    width: 50px;
+  }
+  .section-dimension-8 {
+    min-height: 100px;
+  }
+  .section-dimension-8 {
+    min-width: 100%;
+  }
+  div.section-dimension-8.header-on-left .card-left {
+    top: 40px;
+  }
+  div.section-dimension-8.header-on-left .card-header {
+    left: 0px;
+  }
+  div.section-dimension-8.left-on-header .card-left {
+    top: 0px;
+  }
+  div.section-dimension-8.left-on-header .card-header {
+    left: 50px;
+  }
+  div.section-dimension-8.header-on-right .card-right {
+    top: 40px;
+  }
+  div.section-dimension-8.header-on-right .card-header {
+    right: 0px;
+  }
+  div.section-dimension-8.right-on-header .card-right {
+    top: 0px;
+  }
+  div.section-dimension-8.right-on-header .card-header {
+    right: 50px;
+  }
+  div.section-dimension-8.footer-on-left .card-left {
+    bottom: 40px;
+  }
+  div.section-dimension-8.footer-on-left .card-footer {
+    left: 0px;
+  }
+  div.section-dimension-8.left-on-footer .card-left {
+    bottom: 0px;
+  }
+  div.section-dimension-8.left-on-footer .card-footer {
+    left: 50px;
+  }
+  div.section-dimension-8.footer-on-right .card-right {
+    bottom: 40px;
+  }
+  div.section-dimension-8.footer-on-right .card-footer {
+    right: 0px;
+  }
+  div.section-dimension-8.right-on-footer .card-right {
+    bottom: 0px;
+  }
+  div.section-dimension-8.right-on-footer .card-footer {
+    right: 50px;
+  }
+  .section-dimension-8.cpad-1 {
+    padding: 40px 0px 0px 0px;
+  }
+  .section-dimension-8.cpad-1 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-8 {
+    padding: 0px 50px 0px 0px;
+  }
+  .section-dimension-8.cpad-8 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-9 {
+    padding: 40px 50px 0px 0px;
+  }
+  .section-dimension-8.cpad-9 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-4 {
+    padding: 0px 0px 40px 0px;
+  }
+  .section-dimension-8.cpad-4 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-5 {
+    padding: 40px 0px 40px 0px;
+  }
+  .section-dimension-8.cpad-5 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-12 {
+    padding: 0px 50px 40px 0px;
+  }
+  .section-dimension-8.cpad-12 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-13 {
+    padding: 40px 50px 40px 0px;
+  }
+  .section-dimension-8.cpad-13 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-2 {
+    padding: 0px 0px 0px 50px;
+  }
+  .section-dimension-8.cpad-2 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-3 {
+    padding: 40px 0px 0px 50px;
+  }
+  .section-dimension-8.cpad-3 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-10 {
+    padding: 0px 50px 0px 50px;
+  }
+  .section-dimension-8.cpad-10 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-11 {
+    padding: 40px 50px 0px 50px;
+  }
+  .section-dimension-8.cpad-11 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 0px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-6 {
+    padding: 0px 0px 40px 50px;
+  }
+  .section-dimension-8.cpad-6 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-7 {
+    padding: 40px 0px 40px 50px;
+  }
+  .section-dimension-8.cpad-7 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-14 {
+    padding: 0px 50px 40px 50px;
+  }
+  .section-dimension-8.cpad-14 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-15 {
+    padding: 40px 50px 40px 50px;
+  }
+  .section-dimension-8.cpad-15 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    bottom: 40px;
+    left: 50px;
+    height: auto !important;
+    width: auto !important;
+  }
+  .section-dimension-8.cpad-0 {
+    padding: 0px 0px 0px 0px;
+  }
+  .section-dimension-8.cpad-0 > .widget-divider:only-of-type {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: auto !important;
+    width: auto !important;
+  }
+}
+@media all {
+  .wrapping-col > .d-margins,
+  .wrapping-col > .afScrollPanel > .d-margins {
+    margin-left: 3px;
+    margin-right: 4px;
+  }
+  .wrapping-col > .d-margins,
+  .wrapping-col > .afScrollPanel > .d-margins {
+    margin-left: 3px;
+    margin-right: 4px;
+  }
+  .d-margins {
+    margin-top: 5px;
+    margin-bottom: 6px;
+  }
+}
+@media all {
+  .bar-bg {
+    background-color: #dadada;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+@media all {
+  .thumb-bg > .sidebar-thumb {
+    background-image: url('../sidebar/css/images/gripper.png');
+  }
+  .thumb-bg > .sidebar-thumb {
+    background-color: ;
+  }
+  .thumb-bg > .sidebar-thumb:hover,
+  .thumb-bg > .sidebar-thumb:active {
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  .bar-gutter .sidebar-content > .grid-pad {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.left-receptacle {
+  float: left;
+}
+.right-receptacle {
+  float: right;
+}
+[data-uib="media/text"] p:first-of-type {
+  margin-top: 0px;
+}
+.ellipsis {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+@media all {
+  .default-graphic-button {
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    background-color: #ffffff;
+  }
+}
+@media all {
+  .hover-graphic-button:hover {
+    border-radius: 5px;
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  .active-graphic-button:active {
+    border-radius: 5px;
+    background-color: #dddddd;
+  }
+}
+@media all {
+  .default-graphic-text {
+    text-align: center;
+  }
+}
+@media all {
+  .default-graphic-sizing {
+    width: 150px !important;
+    -webkit-flex: 0 0 auto !important;
+    -moz-flex: 0 0 auto !important;
+    -ms-flex: 0 0 auto !important;
+    -o-flex: 0 0 auto !important;
+    flex: 0 0 auto !important;
+    padding: 5px;
+  }
+}
+@media all {
+  .default-image-sizing > img {
+    width: 50px;
+  }
+}
+.figure-align {
+  display: table;
+  margin: 0px auto;
+}
+.figure-align img {
+  width: 100%;
+}
+.image-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media all {
+  .scale-image img {
+    width: 200px;
+  }
+}
+.button-icon-left {
+  float: left;
+}
+.button-icon-right {
+  float: right;
+}

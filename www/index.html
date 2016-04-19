@@ -70,9 +70,15 @@
             <div class="upage vertical-col left view-main view pull-to-refresh-content" id="mainpage" data-ptr-distance="44">
                 <div class="pages">
 
-                    <div class="page toolbar-fixed">
+                    <div class="page toolbar-fixed" style='background: url(images/bg.jpg) no-repeat center center;'>
 
                         <div class="page-content upage-content content-area vertical-col" id="page_2_23">
+                            <div class="widget uib_w_9 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="img/logo-big.png">
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div>
 
                             <div class="widget uib_w_5 scale-image d-margins" data-uib="media/img" data-ver="0">
                                 <figure class="figure-align">
@@ -83,7 +89,7 @@
                             </div>
                             <div class="widget uib_w_6 scale-image d-margins" data-uib="media/img" data-ver="0">
                                 <figure class="figure-align">
-                                    <a href="#" class="open-panel">
+                                    <a href="#" data-popup=".popup-reg" class="open-popup">
                                         <img src="img/signup.png">
                                     </a>
                                     <figcaption data-position="bottom"></figcaption>
@@ -94,63 +100,6 @@
 
                     </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-left panel-cover wrap-element uib_w_7" data-uib="framework7/left_sidebar" data-ver="0" id="signup-left">
-            <div class="col uib_col_2 single-col" data-uib="layout/col" data-ver="0">
-                <div class="content-block">
-                    <p>Registration</p>
-                    <form id="formSignup">
-                        <div class="list-block">
-                            <ul>
-                                <li class="item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title label">Username</div>
-                                        <div class="item-input">
-                                            <input type="text" name="username2" id="username2" placeholder="Your username">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title label">Password</div>
-                                        <div class="item-input">
-                                            <input type="password" name="password2" id="password2" placeholder="Your password">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title label">Email</div>
-                                        <div class="item-input">
-                                            <input type="text" name="email2" id="email2" placeholder="Your Email">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="item-content">
-                                    <div class="item-inner">
-                                        <div class="item-title label">Name</div>
-                                        <div class="item-input">
-                                            <input type="text" name="name2" id="name2" placeholder="Your name">
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="list-block">
-                            <ul>
-                                <li><span id="loading"></span>
-                                </li>
-                                <li>
-                                    <a id="btnSignup" class="button widget uib_w_8 d-margins" data-uib="framework7/button" data-ver="0"><span>Register</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-
-                    <p><a href="#" class="close-panel">Close me</a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -199,7 +148,73 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        <!-- register Popup -->
+        <div class="popup popup-reg tablet-fullscreen">
+		     <div class="view">
+                <div class="page">
+                    <div class="page-content">
+                        <div class="login-screen-title">Registration</div>
+							<form id="formSignup">
+								<div class="list-block">
+									<ul>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Username</div>
+												<div class="item-input">
+													<input type="text" name="username2" id="username2" placeholder="Your username">
+												</div>
+											</div>
+										</li>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Password</div>
+												<div class="item-input">
+													<input type="password" name="password2" id="password2" placeholder="Your password">
+												</div>
+											</div>
+										</li>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Email</div>
+												<div class="item-input">
+													<input type="text" name="email2" id="email2" placeholder="Your Email">
+												</div>
+											</div>
+										</li>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Name</div>
+												<div class="item-input">
+													<input type="text" name="name2" id="name2" placeholder="Your name">
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="list-block">
+									<ul>
+										<li><span id="loading"></span>
+										</li>
+										<li>
+											<a id="btnSignup" class="button widget uib_w_8 d-margins" data-uib="framework7/button" data-ver="0"><span>Register</span></a>
+										</li>
+									</ul>
+									<div class="list-block-label">
+										<p align='center'>Already have an account?</p>
+										<p align="center"><a href="#" class="close-popup">Back to main menu</a>
+										</p>
+									</div>
+								</div>
+							</form>
+
+        
+					</div>
+				</div>
+			</div>
+		</div>
+        
     </body>
 
 </html>

@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.min.css" class="uib-framework-theme">
-        <link rel="stylesheet" type="text/css" href="css/main_main.less.css" class="main-less">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <head>
+    <link rel="stylesheet" type="text/css" href="icon-fonts/font-awesome-4.3.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="framework7/css/framework7.ios.min.css" class="uib-framework-theme">
+    <link rel="stylesheet" type="text/css" href="css/main_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
-        <script src="cordova.js" id="xdkJScordova_"></script>
+    <script src="cordova.js" id="xdkJScordova_"></script>
 
-        <script src="js/app.js"></script>
-        <script src="js/config.js"></script>
-        <script src="js/jquery-1.12.1.min.js"></script>
-        <script src="js/jquerysession.js"></script>
-        <!-- for your event code, see README and file comments for details -->
-        <script src="js/init-app.js"></script>
-        <!-- for your init code, see README and file comments for details -->
-        <script src="xdk/init-dev.js"></script>
-        <!-- normalizes device and document ready events, see file for details -->
-        <script type="application/javascript" src="framework7/js/framework7.min.js"></script>
-        <script type="application/javascript" src="js/pull-to-refresh.js"></script>
-        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
-        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
-        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
-        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
-        <script type="application/javascript" src="js/index_user_scripts.js"></script>
-    </head>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/jquerysession.js"></script>
+    <!-- for your event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>
+    <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see file for details -->
+    <script type="application/javascript" src="framework7/js/framework7.min.js"></script>
+    <script type="application/javascript" src="js/pull-to-refresh.js"></script>
+    <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+    <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+    <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+    <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+    <script type="application/javascript" src="js/main_user_scripts.js"></script>
+  </head>
 
-    <body>
-        <!-- Status bar overlay for fullscreen mode-->
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
@@ -59,7 +60,8 @@
               <div class="content-block">
                 <p>This is an example of tab bar application layout. The main point of such tabbed layout is that each tab contains independent view with its own routing and navigation.</p>
                 <p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or without navbar like this tab.</p>
-                <p>And of course, your favorite panels are still here: <a href="#" class="open-panel">left</a> and  <a href="#" data-panel="right" class="open-panel">right</a></p>
+                <p>And of course, your favorite panels are still here: <a href="#" class="open-panel">left</a> and <a href="#" data-panel="right" class="open-panel">right</a>
+                </p>
                 <p>Icons and their labels in tab bar below are just for example and don't related to their content.</p>
               </div>
             </div>
@@ -82,18 +84,24 @@
               </div>
               <div class="list-block">
                 <ul>
-                  <li><a href="about.html" class="item-link">
+                  <li>
+                    <a href="xmpp.html" class="item-link">
                       <div class="item-content">
-                        <div class="item-inner"> 
-                          <div class="item-title">About Us</div>
+                        <div class="item-inner">
+                          <div class="item-title">XMPP</div>
                         </div>
-                      </div></a></li>
-                  <li><a href="services.html" class="item-link">
-                      <div class="item-content"> 
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="services.html" class="item-link">
+                      <div class="item-content">
                         <div class="item-inner">
                           <div class="item-title">Services</div>
                         </div>
-                      </div></a></li>
+                      </div>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -106,9 +114,14 @@
             <div class="page-content">
               <div class="content-block-title">Another plain static view</div>
               <div class="content-block">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
-                <p>Mauris commodo lacus at nisl lacinia, nec facilisis erat rhoncus. Sed eget pharetra nunc. Aenean vitae vehicula massa, sed sagittis ante. Quisque luctus nec velit dictum convallis. Nulla facilisi. Ut sed erat nisi. Donec non dolor massa. Mauris malesuada dolor velit, in suscipit leo consectetur vitae. Duis tempus ligula non eros pretium condimentum. Cras sed dolor odio.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius
+                  tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis
+                  orci. Vestibulum quis fringilla dolor.</p>
+                <p>Mauris commodo lacus at nisl lacinia, nec facilisis erat rhoncus. Sed eget pharetra nunc. Aenean vitae vehicula massa, sed sagittis ante. Quisque luctus nec velit dictum convallis. Nulla facilisi. Ut sed erat nisi. Donec non dolor massa.
+                  Mauris malesuada dolor velit, in suscipit leo consectetur vitae. Duis tempus ligula non eros pretium condimentum. Cras sed dolor odio.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius
+                  tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis
+                  orci. Vestibulum quis fringilla dolor.</p>
               </div>
             </div>
           </div>
@@ -127,8 +140,9 @@
                 <ul>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-name"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-name"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Name</div>
                         <div class="item-input">
                           <input type="text" placeholder="Your name">
@@ -138,8 +152,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-email"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-email"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">E-mail</div>
                         <div class="item-input">
                           <input type="text" placeholder="E-mail">
@@ -149,8 +164,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-url"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-url"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">URL</div>
                         <div class="item-input">
                           <input type="text" placeholder="URL">
@@ -160,8 +176,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-password"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-password"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Password</div>
                         <div class="item-input">
                           <input type="password" placeholder="Password">
@@ -171,8 +188,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-tel"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-tel"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Phone</div>
                         <div class="item-input">
                           <input type="tel" placeholder="Phone">
@@ -182,8 +200,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-gender"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-gender"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Gender</div>
                         <div class="item-input">
                           <select>
@@ -196,8 +215,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-calendar"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-calendar"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Birth date</div>
                         <div class="item-input">
                           <input type="text" placeholder="Birth day" value="2014-04-30">
@@ -207,8 +227,9 @@
                   </li>
                   <li>
                     <div class="item-content">
-                      <div class="item-media"><i class="icon icon-form-toggle"></i></div>
-                      <div class="item-inner"> 
+                      <div class="item-media"><i class="icon icon-form-toggle"></i>
+                      </div>
+                      <div class="item-inner">
                         <div class="item-title label">Switch</div>
                         <div class="item-input">
                           <label class="label-switch">
@@ -223,7 +244,8 @@
                 </ul>
               </div>
               <div class="content-block">
-                <p>Mauris commodo lacus at nisl lacinia, nec facilisis erat rhoncus. Sed eget pharetra nunc. Aenean vitae vehicula massa, sed sagittis ante. Quisque luctus nec velit dictum convallis. Nulla facilisi. Ut sed erat nisi. Donec non dolor massa. Mauris malesuada dolor velit, in suscipit leo consectetur vitae. Duis tempus ligula non eros pretium condimentum. Cras sed dolor odio.</p>
+                <p>Mauris commodo lacus at nisl lacinia, nec facilisis erat rhoncus. Sed eget pharetra nunc. Aenean vitae vehicula massa, sed sagittis ante. Quisque luctus nec velit dictum convallis. Nulla facilisi. Ut sed erat nisi. Donec non dolor massa.
+                  Mauris malesuada dolor velit, in suscipit leo consectetur vitae. Duis tempus ligula non eros pretium condimentum. Cras sed dolor odio.</p>
               </div>
             </div>
           </div>
@@ -231,11 +253,21 @@
       </div>
       <!-- Bottom Tabbar-->
       <div class="toolbar tabbar tabbar-labels">
-        <div class="toolbar-inner"><a href="#view-1" class="tab-link active"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">Information</span></a><a href="#view-2" class="tab-link"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">Inbox</span></a><a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span></a><a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Photos</span></a></div>
+        <div class="toolbar-inner">
+          <a href="#view-1" class="tab-link active"> <i class="fa fa-user"></i><span class="tabbar-label">Information</span>
+          </a>
+          <a href="#view-2" class="tab-link open-panel" data-panel="right"><i class="icon fa fa-camera-retro"></i><span class="tabbar-label">Inbox</span></a>
+          <a href="#view-3" class="tab-link"> <i class="icon tabbar-demo-icon-3"><span class="badge bg-red">4</span></i><span class="tabbar-label">Upload</span>
+          </a>
+          <a href="#view-4" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Mero</span>
+          </a>
+          <a href="./xmpp.html" class="tab-link"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">Chat</span>
+          </a>
+        </div>
       </div>
     </div>
 
-        <script type="application/javascript" src="framework7/my-app.js"></script>
-    </body>
+    <script type="application/javascript" src="framework7/my-app.js"></script>
+  </body>
 
 </html>

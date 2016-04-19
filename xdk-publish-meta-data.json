@@ -1,14 +1,18 @@
 {
-  "categorization": {},
+  "categorization": {
+    "type": "APPLICATION",
+    "category": "Communication"
+  },
   "description": {
     "texts": {
-      "title": "",
+      "title": "Digitalize",
       "features": [
-        ""
+        "Chat",
+        "Share Photo, Video"
       ],
-      "short-description": "",
-      "full-description": "",
-      "keywords": "",
+      "short-description": "Digitalize your self",
+      "full-description": "All In One mobile Communication. Chat, Share, and Broadcast your stories with world!!",
+      "keywords": "digitalize",
       "recent-changes": "",
       "privacy-policy": "",
       "eula": ""
@@ -24,6 +28,14 @@
       "video-url": ""
     }
   },
-  "packages": {},
-  "support": {}
+  "packages": {
+    "zip-file": "",
+    "apk-file": "",
+    "secondary-apk-file": ""
+  },
+  "support": {
+    "email": "",
+    "website": ""
+  },
+  "testing-instructions": ""
 }
